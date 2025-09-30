@@ -9,12 +9,11 @@ require("config.mason")
 require("config.mason-lspconfig")
 require("config.trouble")
 require("config.toggleterm")
-require('ayu').setup({
-	mirage = false,
-	terminal = true,
-	overrides = {},
-})
-vim.cmd.colorscheme("ayu")
+require("config.ayu-dark")
+require("config.inlay-hints")
+require("config.cmp")
+require("keybindings")
+require("options")
 
 vim.diagnostic.config({
 	virtual_text = true,

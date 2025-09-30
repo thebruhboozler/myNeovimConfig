@@ -46,3 +46,4 @@ end, opts)
 -- Next/Prev
 map('n', '<leader>bn', bmui.nav_next, opts)
 map('n', '<leader>bp', bmui.nav_prev, opts)
+map('n', '<leader>bd', ":bd<CR> :bp <CR>")
