@@ -12,6 +12,7 @@ require("config.toggleterm")
 require("config.ayu-dark")
 require("config.inlay-hints")
 require("config.cmp")
+require("config.lazy-git")
 require("keybindings")
 require("options")
 
