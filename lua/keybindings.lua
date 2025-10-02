@@ -23,3 +23,35 @@ vim.keymap.set('n','<leader>tn',function ()
 	vim.cmd('set rnu')
 	vim.cmd('set number')
 end)
+
+
+vim.keymap.set('n','<leader>vs',':vsplit<CR>')
+vim.keymap.set('n','<leader>hs',':split<CR>')
+
+
+
+local ns = vim.api.nvim_create_namespace('resizer')
+vim.keymap.set('n','<leader>rz',function ()
+	vim.g.resizing = true
+	vim.on_key(function (key)
+		if vim.g.resizing ~= true then 
+			return 
+		end
+		key=vim.fn.keytrans(key)
+		if key =='<Up>' then
+			vim.cmd('resize +1')
+		elseif key=='<Down>' then
+			vim.cmd('resize -1')
+		elseif key=='<Left>' then
+			vim.cmd('vertical resize +1')
+		elseif key=='<Right>' then
+			vim.cmd('vertical resize -1')
+		end
+	end, ns)
+
+
+end)
+
+vim.keymap.set('n','<leader>sz',function ()
+	vim.g.resizing=false
+end)
