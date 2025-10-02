@@ -10,3 +10,16 @@ vim.keymap.set('t','<C-k>','<C-\\><C-n><C-W><C-k>')
 vim.keymap.set('t','<C-l>','<C-\\><C-n><C-W><C-l>')
 
 vim.keymap.set('n','<leader>qq',':wqa!<CR>')
+
+vim.keymap.set('n','<leader>rn',':set rnu<CR> :set number<CR>')
+vim.keymap.set('n','<leader>an',':set nornu<CR> :set number<CR>')
+vim.keymap.set('n','<leader>tn',function ()
+	if vim.wo.relativenumber then 
+		vim.cmd('set nornu')
+		vim.cmd('set number')
+		return
+	end
+
+	vim.cmd('set rnu')
+	vim.cmd('set number')
+end)
