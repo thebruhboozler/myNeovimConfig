@@ -10,11 +10,12 @@ vim.keymap.set('t','<C-k>','<C-\\><C-n><C-W><C-k>')
 vim.keymap.set('t','<C-l>','<C-\\><C-n><C-W><C-l>')
 
 vim.keymap.set('n','<leader>qq',':wqa!<CR>')
+vim.keymap.set('n','<C-s>',':w!<CR>')
 
 vim.keymap.set('n','<leader>rn',':set rnu<CR> :set number<CR>')
 vim.keymap.set('n','<leader>an',':set nornu<CR> :set number<CR>')
 vim.keymap.set('n','<leader>tn',function ()
-	if vim.wo.relativenumber then 
+	if vim.wo.relativenumber then
 		vim.cmd('set nornu')
 		vim.cmd('set number')
 		return
@@ -34,8 +35,8 @@ local ns = vim.api.nvim_create_namespace('resizer')
 vim.keymap.set('n','<leader>rz',function ()
 	vim.g.resizing = true
 	vim.on_key(function (key)
-		if vim.g.resizing ~= true then 
-			return 
+		if vim.g.resizing ~= true then
+			return
 		end
 		key=vim.fn.keytrans(key)
 		if key =='<Up>' then
@@ -51,6 +52,7 @@ vim.keymap.set('n','<leader>rz',function ()
 
 
 end)
+
 
 vim.keymap.set('n','<leader>sz',function ()
 	vim.g.resizing=false

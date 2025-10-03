@@ -1,7 +1,4 @@
-local lspconfig = require("lspconfig")
-
-
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls',{
 	settings = {
 		Lua = {
 			hint = {
@@ -11,6 +8,15 @@ lspconfig.lua_ls.setup({
 				paramName = "All",
 				paramType = true,
 			},
+
+			diagnostics = {
+				globals = {'vim'},
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+				checkThirdParty = false,
+			},
+
 		},
 	},
 	on_attach = function(client, bufnr)
